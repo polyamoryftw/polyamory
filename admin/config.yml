@@ -5,28 +5,75 @@ backend:
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
+site_url: "https://polyamoryv1.netlify.app"
+display_url: "https://polyamoryv1.netlify.app"
+logo_url: "/assets/hero.jpg"
+
 collections:
   - name: "site"
-    label: "Site Content"
+    label: "Polyamory Site Editor"
+    editor:
+      preview: false
     files:
-      - label: "Homepage"
-        name: "homepage"
+      - label: "Main Site Content"
+        name: "main_site_content"
         file: "data/site.json"
         fields:
-          - {label: "Site title", name: "siteTitle", widget: "string"}
-          - {label: "Tagline", name: "tagline", widget: "string"}
-          - {label: "YouTube URL", name: "youtubeUrl", widget: "string"}
-          - label: "Shows"
+          - { label: "Site Title", name: "siteTitle", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string", required: false }
+          - { label: "Primary YouTube URL", name: "youtubeUrl", widget: "string", required: false }
+
+          - label: "Social / External Links"
+            name: "links"
+            widget: "object"
+            collapsed: false
+            fields:
+              - { label: "Spotify", name: "spotify", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "YouTube", name: "youtube", widget: "string", required: false }
+              - { label: "Shopify", name: "shopify", widget: "string", required: false }
+
+          - label: "Archive / Feature Cards"
+            name: "features"
+            widget: "list"
+            collapsed: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "URL", name: "url", widget: "string", required: false }
+
+          - label: "Videos"
+            name: "videos"
+            widget: "list"
+            collapsed: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Label", name: "label", widget: "string", required: false }
+              - { label: "YouTube ID", name: "youtubeId", widget: "string", required: false }
+              - { label: "URL", name: "url", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+
+          - label: "Live Shows"
             name: "shows"
             widget: "list"
+            collapsed: false
+            summary: "{{fields.date}} — {{fields.city}}"
             fields:
-              - {label: "Date", name: "date", widget: "string"}
-              - {label: "City", name: "city", widget: "string"}
-              - {label: "Venue", name: "venue", widget: "string"}
+              - { label: "Date", name: "date", widget: "string" }
+              - { label: "City", name: "city", widget: "string" }
+              - { label: "Venue", name: "venue", widget: "string" }
+              - { label: "Ticket URL", name: "url", widget: "string", required: false }
+
           - label: "Merch"
             name: "merch"
             widget: "list"
+            collapsed: false
+            summary: "{{fields.name}} — {{fields.price}}"
             fields:
-              - {label: "Name", name: "name", widget: "string"}
-              - {label: "Price", name: "price", widget: "string"}
-              - {label: "Image", name: "image", widget: "image"}
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Price", name: "price", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Product URL", name: "url", widget: "string", required: false }
