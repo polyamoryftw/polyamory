@@ -3,8 +3,8 @@
   "tagline": "Official transmissions, visual archive, live dates and store.",
   "youtubeUrl": "https://www.youtube.com/watch?v=fPq_EjGA-R4",
   "links": {
-    "spotify": "#spotify",
-    "instagram": "#instagram",
+    "spotify": "https://open.spotify.com/artist/1V37ENmaidpjt13bc916F5?si=nUcnbltsT4eLHPPCgbe37Q",
+    "instagram": "https://www.instagram.com/polyamorymusic/",
     "youtube": "https://www.youtube.com/watch?v=fPq_EjGA-R4"
   },
   "features": [
@@ -58,27 +58,27 @@
   "merch": [
     {
       "name": "Mask Tee",
-      "price": "\u00a335",
+      "price": "£35",
       "image": "assets/merch/mask-tee.jpg"
     },
     {
       "name": "Signal Hoodie",
-      "price": "\u00a370",
+      "price": "£70",
       "image": "assets/merch/signal-hoodie.jpg"
     },
     {
       "name": "Cap",
-      "price": "\u00a330",
+      "price": "£30",
       "image": "assets/merch/cap.jpg"
     },
     {
       "name": "Archive Poster",
-      "price": "\u00a324",
+      "price": "£24",
       "image": "assets/merch/poster.jpg"
     },
     {
       "name": "Tote",
-      "price": "\u00a328",
+      "price": "£28",
       "image": "assets/merch/tote.jpg"
     }
   ],
