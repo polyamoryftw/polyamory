@@ -142,9 +142,9 @@
   "hero": {
     "overline": "Official transmission // 001",
     "title": "POLYAMORY",
-    "tagline": "Private access · video archive · live · store",
+    "tagline": "mailing list · video archive · live · store",
     "emailPlaceholder": "email address",
-    "buttonText": "Enter H.Q.",
+    "buttonText": "Subscribe",
     "launchNote": "Join first for announcements, passwords, ticket links and early drops.",
     "scrollTarget": "archive"
   },
@@ -161,18 +161,11 @@
       "buttonText": "Join"
     },
     {
-      "id": "archive",
-      "visible": true,
-      "order": 2,
-      "eyebrow": "Archive",
-      "title": "Selected signal"
-    },
-    {
       "id": "music",
       "visible": true,
       "order": 3,
       "eyebrow": "Music",
-      "title": "Video / source"
+      "title": "Video"
     },
     {
       "id": "live",
@@ -182,11 +175,18 @@
       "title": "Dates"
     },
     {
+      "id": "archive",
+      "visible": true,
+      "order": 2,
+      "eyebrow": "Archive",
+      "title": "Selected signal"
+    },
+    {
       "id": "store",
       "visible": true,
       "order": 5,
       "eyebrow": "Store",
-      "title": "Objects",
+      "title": "Shop",
       "shopifyTitle": "Shopify-ready",
       "shopifyBody": "Replace product links with Shopify Buy Button, Hydrogen, or a full Shopify theme connection."
     }
