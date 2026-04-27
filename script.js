@@ -53,18 +53,18 @@ function applySectionOrder(data){
   const root = document.querySelector('[data-section-root]');
   if(!root || !Array.isArray(data.sections)) return;
 
-  data.sections.forEach(section => {
+  // Do not change layout display styles here.
+  // Reorder by physically moving sections in the DOM so existing CSS/grid formatting stays intact.
+  const orderedSections = [...data.sections]
+    .filter(section => section && section.id)
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
+
+  orderedSections.forEach(section => {
     const el = document.querySelector(`#${section.id}`);
     if(!el) return;
-    el.style.order = section.order || 0;
     el.hidden = section.visible === false;
+    root.appendChild(el);
   });
-
-  root.style.display = 'flex';
-  root.style.flexDirection = 'column';
-
-  const hero = document.querySelector('.hero');
-  if(hero) hero.style.order = 0;
 }
 
 function card(feature){
