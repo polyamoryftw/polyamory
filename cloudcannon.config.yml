@@ -1,10 +1,7 @@
-# CloudCannon enhanced config for Polyamory
-# Copy this file to the ROOT of your GitHub repo.
-# This file only configures editing. It does not change the website design or data.
+# CloudCannon config for fully editable Polyamory content.
+# This exposes data/site.json as the editable source of truth.
 
 source: /
-base_url: https://polyamoryv1.netlify.app
-
 paths:
   uploads: assets/uploads
   static: /
@@ -32,50 +29,151 @@ collection_groups:
     collections:
       - site_data
 
-_structures:
-  links:
-    values:
-      - label: Social Links
-        icon: link
-        value:
-          spotify:
-          instagram:
-          youtube:
-          shopify:
-
-_editables:
-  content:
-    link: true
-    blockquote: false
-    bold: true
-    italic: true
-    removeformat: true
-
 _inputs:
   siteTitle:
     label: Site Title
     type: text
-    comment: Main wordmark / browser title.
-
   tagline:
-    label: Tagline
+    label: Site Description
     type: text
-    comment: Short line used for site description and launch messaging.
-
   youtubeUrl:
     label: Main YouTube URL
     type: url
-    comment: Main video link.
+
+  nav:
+    label: Navigation
+    type: object
+    comment: Edit the brand and top navigation links.
+  brand:
+    label: Brand Text
+    type: text
+  items:
+    label: Navigation Items
+    type: array
+    comment: Drag to reorder navigation items.
+  target:
+    label: Section Target
+    type: select
+    options:
+      values:
+        - hq
+        - music
+        - archive
+        - live
+        - store
+  visible:
+    label: Visible
+    type: switch
+  order:
+    label: Display Order
+    type: number
+
+  hero:
+    label: Hero Text
+    type: object
+  overline:
+    label: Overline
+    type: text
+  title:
+    label: Title
+    type: text
+  emailPlaceholder:
+    label: Email Placeholder
+    type: text
+  buttonText:
+    label: Button Text
+    type: text
+  launchNote:
+    label: Launch Note
+    type: text
+  scrollTarget:
+    label: Scroll Target
+    type: select
+    options:
+      values:
+        - hq
+        - music
+        - archive
+        - live
+        - store
+
+  sections:
+    label: Sections
+    type: array
+    comment: Drag these to reorder site sections. Set Visible off to hide a section.
+    options:
+      structures:
+        values:
+          - label: Mailing List Section
+            value:
+              id: hq
+              visible: true
+              order: 1
+              eyebrow:
+              title:
+              introTitle:
+              body:
+              emailPlaceholder:
+              buttonText:
+          - label: Videos Section
+            value:
+              id: music
+              visible: true
+              order: 2
+              eyebrow:
+              title:
+          - label: Archive Section
+            value:
+              id: archive
+              visible: true
+              order: 3
+              eyebrow:
+              title:
+          - label: Live Section
+            value:
+              id: live
+              visible: true
+              order: 4
+              eyebrow:
+              title:
+          - label: Store Section
+            value:
+              id: store
+              visible: true
+              order: 5
+              eyebrow:
+              title:
+              shopifyTitle:
+              shopifyBody:
+  id:
+    label: Section ID
+    type: select
+    options:
+      values:
+        - hq
+        - music
+        - archive
+        - live
+        - store
+  eyebrow:
+    label: Small Heading
+    type: text
+  introTitle:
+    label: Intro Title
+    type: text
+  body:
+    label: Body Text
+    type: textarea
+  shopifyTitle:
+    label: Shopify Note Title
+    type: text
+  shopifyBody:
+    label: Shopify Note Body
+    type: textarea
 
   links:
     label: Social / External Links
     type: object
-    options:
-      preview:
-        text:
-          - Spotify / Instagram / YouTube / Shopify
-    comment: Paste full URLs for external platforms.
-
   spotify:
     label: Spotify URL
     type: url
@@ -92,111 +190,36 @@ _inputs:
   features:
     label: Archive Cards
     type: array
-    comment: Cards in the visual archive section. Drag items to reorder.
-    options:
-      structures:
-        values:
-          - label: Archive Card
-            icon: image
-            value:
-              title:
-              subtitle:
-              image:
-              url:
-      preview:
-        text:
-          - key: title
-        subtext:
-          - key: subtitle
-        image:
-          - key: image
-
+    comment: Drag to reorder archive cards.
   videos:
     label: Videos
     type: array
-    comment: Videos shown in the side player. Drag items to reorder.
-    options:
-      structures:
-        values:
-          - label: Video
-            icon: smart_display
-            value:
-              title:
-              label:
-              youtubeId:
-              url:
-              image:
-      preview:
-        text:
-          - key: title
-        subtext:
-          - key: label
-        image:
-          - key: image
-
+    comment: Drag to reorder videos.
   shows:
     label: Live Shows
     type: array
-    comment: Live dates. Drag items to reorder.
-    options:
-      structures:
-        values:
-          - label: Show
-            icon: event
-            value:
-              date:
-              city:
-              venue:
-              url:
-      preview:
-        text:
-          - key: city
-        subtext:
-          - key: venue
-
+    comment: Drag to reorder live dates.
   merch:
     label: Merch
     type: array
-    comment: Merch/product cards. Drag items to reorder.
-    options:
-      structures:
-        values:
-          - label: Merch Item
-            icon: shopping_bag
-            value:
-              name:
-              price:
-              image:
-              url:
-      preview:
-        text:
-          - key: name
-        subtext:
-          - key: price
-        image:
-          - key: image
+    comment: Drag to reorder merch items.
 
-  title:
-    label: Title
-    type: text
   subtitle:
     label: Subtitle
     type: text
   label:
     label: Label
     type: text
-    comment: Example: Video 001
   youtubeId:
     label: YouTube ID
     type: text
-    comment: Use only the ID, not the whole URL. Example: fPq_EjGA-R4
+    comment: Example: fPq_EjGA-R4
   url:
     label: URL
     type: url
   date:
     label: Date
     type: text
-    comment: Example: 24 MAY
   city:
     label: City
     type: text
@@ -209,15 +232,19 @@ _inputs:
   price:
     label: Price
     type: text
-    comment: Example: £35
   image:
     label: Image
     type: image
-    comment: Upload or select an image. Uploaded images go into assets/uploads.
     options:
       path: assets/uploads
       uploads_use_relative_path: true
-      empty_type: string
 
-_snippets_imports:
-  cloudcannon: true
+  footer:
+    label: Footer
+    type: object
+  left:
+    label: Left Footer Text
+    type: text
+  right:
+    label: Right Footer Text
+    type: text

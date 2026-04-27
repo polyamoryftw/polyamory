@@ -1,10 +1,10 @@
 {
   "siteTitle": "POLYAMORY",
-  "tagline": "Official transmissions, mailing list, live dates and store",
+  "tagline": "Official transmissions, visual archive, live dates and store.",
   "youtubeUrl": "https://www.youtube.com/watch?v=fPq_EjGA-R4",
   "links": {
-    "spotify": "https://open.spotify.com/artist/1V37ENmaidpjt13bc916F5?si=nUcnbltsT4eLHPPCgbe37Q",
-    "instagram": "https://www.instagram.com/polyamorymusic/",
+    "spotify": "#spotify",
+    "instagram": "#instagram",
     "youtube": "https://www.youtube.com/watch?v=fPq_EjGA-R4"
   },
   "features": [
@@ -97,5 +97,102 @@
       "url": "https://www.youtube.com/watch?v=HDwookIE2nI",
       "image": "assets/thumbs/thumb-2.jpg"
     }
-  ]
+  ],
+  "nav": {
+    "brand": "POLYAMORY",
+    "items": [
+      {
+        "label": "Mailing List",
+        "target": "hq",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "label": "Videos",
+        "target": "music",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "label": "Archive",
+        "target": "archive",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "label": "Live",
+        "target": "live",
+        "visible": true,
+        "order": 4
+      },
+      {
+        "label": "Store",
+        "target": "store",
+        "visible": true,
+        "order": 5
+      },
+      {
+        "label": "H.Q.",
+        "target": "hq",
+        "visible": true,
+        "order": 6
+      }
+    ]
+  },
+  "hero": {
+    "overline": "Official transmission // 001",
+    "title": "POLYAMORY",
+    "tagline": "Private access · video archive · live · store",
+    "emailPlaceholder": "email address",
+    "buttonText": "Enter H.Q.",
+    "launchNote": "Join first for announcements, passwords, ticket links and early drops.",
+    "scrollTarget": "archive"
+  },
+  "sections": [
+    {
+      "id": "hq",
+      "visible": true,
+      "order": 1,
+      "eyebrow": "Launch access",
+      "title": "Mailing List",
+      "introTitle": "H.Q. is the front door for the first rollout.",
+      "body": "Subscribers receive the first announcements, private video drops, ticket windows, merch passwords and direct updates before the public archive changes.",
+      "emailPlaceholder": "email address",
+      "buttonText": "Join"
+    },
+    {
+      "id": "archive",
+      "visible": true,
+      "order": 2,
+      "eyebrow": "Archive",
+      "title": "Selected signal"
+    },
+    {
+      "id": "music",
+      "visible": true,
+      "order": 3,
+      "eyebrow": "Music",
+      "title": "Video / source"
+    },
+    {
+      "id": "live",
+      "visible": true,
+      "order": 4,
+      "eyebrow": "Live",
+      "title": "Dates"
+    },
+    {
+      "id": "store",
+      "visible": true,
+      "order": 5,
+      "eyebrow": "Store",
+      "title": "Objects",
+      "shopifyTitle": "Shopify-ready",
+      "shopifyBody": "Replace product links with Shopify Buy Button, Hydrogen, or a full Shopify theme connection."
+    }
+  ],
+  "footer": {
+    "left": "© POLYAMORY",
+    "right": "Spotify · Instagram · YouTube · Privacy · Cookies"
+  }
 }

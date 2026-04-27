@@ -1,10 +1,5 @@
 <!doctype html>
 <html lang="en">
-  <script>
-  if (window.location.hash && window.location.hash.includes("_token")) {
-    window.location.href = "/admin/" + window.location.hash;
-  }
-</script>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,8 +10,8 @@
 <body>
   <div class="grain"></div>
   <header class="topbar">
-    <a class="brand" href="#top">POLYAMORY</a>
-    <nav>
+    <a class="brand" href="#top" data-edit="nav.brand">POLYAMORY</a>
+    <nav id="mainNav">
       <a href="#hq">Mailing List</a>
       <a href="#archive">Archive</a>
       <a href="#music">Videos</a>
@@ -26,7 +21,7 @@
     </nav>
   </header>
 
-  <main id="top">
+  <main id="top" data-section-root>
     <section class="hero" data-hero>
       <picture>
         <source media="(max-width: 720px)" srcset="assets/hero-mobile.jpg">
@@ -34,47 +29,47 @@
       </picture>
       <div class="hero__shade"></div>
       <div class="hero__copy">
-        <p class="overline">Official transmission // 001</p>
-        <h1>POLYAMORY</h1>
-        <p class="tagline">Private access · video archive · live · store</p>
+        <p class="overline" data-edit="hero.overline">Official transmission // 001</p>
+        <h1 data-edit="hero.title">POLYAMORY</h1>
+        <p class="tagline" data-edit="hero.tagline">Private access · video archive · live · store</p>
         <form class="heroSignup signup" name="polyamory-launch-list">
-          <input type="email" placeholder="email address" aria-label="Email address">
-          <button type="button">Enter H.Q.</button>
+          <input type="email" placeholder="email address" aria-label="Email address" data-placeholder="hero.emailPlaceholder">
+          <button type="button" data-edit="hero.buttonText">Enter H.Q.</button>
         </form>
-        <p class="launchNote">Join first for announcements, passwords, ticket links and early drops.</p>
+        <p class="launchNote" data-edit="hero.launchNote">Join first for announcements, passwords, ticket links and early drops.</p>
       </div>
-      <a class="scroll" href="#archive" aria-label="Scroll to archive"></a>
+      <a class="scroll" href="#archive" aria-label="Scroll to archive" data-scroll-link></a>
     </section>
 
     <section id="hq" class="section hq hq--launch">
       <div class="sectionHead">
-        <p>Launch access</p>
-        <h2>Mailing List</h2>
+        <p data-section-text="hq.eyebrow">Launch access</p>
+        <h2 data-section-text="hq.title">Mailing List</h2>
       </div>
       <div class="launchGrid">
         <div>
-          <p class="launchBig">H.Q. is the front door for the first rollout.</p>
-          <p class="fineprint">Subscribers receive the first announcements, private video drops, ticket windows, merch passwords and direct updates before the public archive changes.</p>
+          <p class="launchBig" data-section-text="hq.introTitle">H.Q. is the front door for the first rollout.</p>
+          <p class="fineprint" data-section-text="hq.body">Subscribers receive the first announcements, private video drops, ticket windows, merch passwords and direct updates before the public archive changes.</p>
         </div>
         <form class="signup signup--large" name="polyamory-mailing-list">
-          <input type="email" placeholder="email address" aria-label="Email address">
-          <button type="button">Join</button>
+          <input type="email" placeholder="email address" aria-label="Email address" data-placeholder="hero.emailPlaceholder">
+          <button type="button" data-section-text="hq.buttonText">Join</button>
         </form>
       </div>
     </section>
 
     <section id="archive" class="section section--archive">
       <div class="sectionHead">
-        <p>Archive</p>
-        <h2>Selected signal</h2>
+        <p data-section-text="archive.eyebrow">Archive</p>
+        <h2 data-section-text="archive.title">Selected signal</h2>
       </div>
       <div class="featureGrid" id="featureGrid"></div>
     </section>
 
     <section id="music" class="section section--split">
       <div class="sectionHead">
-        <p>Music</p>
-        <h2>Video / source</h2>
+        <p data-section-text="music.eyebrow">Music</p>
+        <h2 data-section-text="music.title">Video / source</h2>
       </div>
       <div class="videoDeck">
         <aside class="videoList" id="videoList"></aside>
@@ -86,28 +81,28 @@
 
     <section id="live" class="section">
       <div class="sectionHead">
-        <p>Live</p>
-        <h2>Dates</h2>
+        <p data-section-text="live.eyebrow">Live</p>
+        <h2 data-section-text="live.title">Dates</h2>
       </div>
       <div class="dateRows" id="dateRows"></div>
     </section>
 
     <section id="store" class="section">
       <div class="sectionHead">
-        <p>Store</p>
-        <h2>Objects</h2>
+        <p data-section-text="store.eyebrow">Store</p>
+        <h2 data-section-text="store.title">Objects</h2>
       </div>
       <div class="storeGrid" id="storeGrid"></div>
       <div class="shopifyNote">
-        <strong>Shopify-ready</strong>
-        <span>Replace product links with Shopify Buy Button, Hydrogen, or a full Shopify theme connection.</span>
+        <strong data-section-text="store.shopifyTitle">Shopify-ready</strong>
+        <span data-section-text="store.shopifyBody">Replace product links with Shopify Buy Button, Hydrogen, or a full Shopify theme connection.</span>
       </div>
     </section>
   </main>
 
   <footer>
-    <span>© POLYAMORY</span>
-    <span>Spotify · Instagram · YouTube · Privacy · Cookies</span>
+    <span data-edit="footer.left">© POLYAMORY</span>
+    <span data-edit="footer.right">Spotify · Instagram · YouTube · Privacy · Cookies</span>
   </footer>
 
   <script src="script.js"></script>
