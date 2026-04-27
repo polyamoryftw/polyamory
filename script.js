@@ -1,5 +1,18 @@
 async function loadData(){
-  const res = await fetch('data/site.json');
+  // Always request the latest CloudCannon/GitHub content.
+  // This prevents stale Cloudflare/browser cache from hiding editor changes.
+  const cacheBust = `v=${Date.now()}`;
+  const res = await fetch(`data/site.json?${cacheBust}`, {
+    cache: 'no-store',
+    headers: {
+      'Cache-Control': 'no-cache'
+    }
+  });
+
+  if (!res.ok) {
+    throw new Error(`Could not load data/site.json: ${res.status}`);
+  }
+
   return await res.json();
 }
 
@@ -53,7 +66,6 @@ function applySectionOrder(data){
   const root = document.querySelector('[data-section-root]');
   if(!root || !Array.isArray(data.sections)) return;
 
-  // Do not change layout display styles here.
   // Reorder by physically moving sections in the DOM so existing CSS/grid formatting stays intact.
   const orderedSections = [...data.sections]
     .filter(section => section && section.id)
@@ -124,6 +136,8 @@ loadData().then(data => {
       frame.src = `https://www.youtube.com/embed/${button.dataset.video}?autoplay=1`;
     });
   }
+}).catch(error => {
+  console.error('Polyamory content failed to load', error);
 });
 
 // Integration placeholders:
