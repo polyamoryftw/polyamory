@@ -1,6 +1,6 @@
-# CloudCannon setup for the existing Polyamory static site.
+# CloudCannon enhanced config for Polyamory
 # Copy this file to the ROOT of your GitHub repo.
-# It does not change the website design or content.
+# This file only configures editing. It does not change the website design or data.
 
 source: /
 base_url: https://polyamoryv1.netlify.app
@@ -17,7 +17,7 @@ collections_config:
     glob:
       - site.json
     disable_url: true
-    icon: edit_note
+    icon: dashboard_customize
     _enabled_editors:
       - data
     preview:
@@ -25,18 +25,56 @@ collections_config:
         - key: siteTitle
       subtext:
         - key: tagline
-      icon: settings
+      icon: auto_awesome
+
+collection_groups:
+  - heading: Polyamory
+    collections:
+      - site_data
+
+_structures:
+  links:
+    values:
+      - label: Social Links
+        icon: link
+        value:
+          spotify:
+          instagram:
+          youtube:
+          shopify:
+
+_editables:
+  content:
+    link: true
+    blockquote: false
+    bold: true
+    italic: true
+    removeformat: true
 
 _inputs:
   siteTitle:
     label: Site Title
     type: text
+    comment: Main wordmark / browser title.
+
   tagline:
     label: Tagline
     type: text
+    comment: Short line used for site description and launch messaging.
+
   youtubeUrl:
     label: Main YouTube URL
     type: url
+    comment: Main video link.
+
+  links:
+    label: Social / External Links
+    type: object
+    options:
+      preview:
+        text:
+          - Spotify / Instagram / YouTube / Shopify
+    comment: Paste full URLs for external platforms.
 
   spotify:
     label: Spotify URL
@@ -48,25 +86,95 @@ _inputs:
     label: YouTube URL
     type: url
   shopify:
-    label: Shopify URL
+    label: Shopify Store URL
     type: url
 
   features:
     label: Archive Cards
     type: array
-    comment: Edit archive/feature cards. Drag to reorder.
-  shows:
-    label: Live Shows
-    type: array
-    comment: Edit live dates. Drag to reorder.
-  merch:
-    label: Merch
-    type: array
-    comment: Edit merch items. Drag to reorder.
+    comment: Cards in the visual archive section. Drag items to reorder.
+    options:
+      structures:
+        values:
+          - label: Archive Card
+            icon: image
+            value:
+              title:
+              subtitle:
+              image:
+              url:
+      preview:
+        text:
+          - key: title
+        subtext:
+          - key: subtitle
+        image:
+          - key: image
+
   videos:
     label: Videos
     type: array
-    comment: Edit videos shown in the side player. Drag to reorder.
+    comment: Videos shown in the side player. Drag items to reorder.
+    options:
+      structures:
+        values:
+          - label: Video
+            icon: smart_display
+            value:
+              title:
+              label:
+              youtubeId:
+              url:
+              image:
+      preview:
+        text:
+          - key: title
+        subtext:
+          - key: label
+        image:
+          - key: image
+
+  shows:
+    label: Live Shows
+    type: array
+    comment: Live dates. Drag items to reorder.
+    options:
+      structures:
+        values:
+          - label: Show
+            icon: event
+            value:
+              date:
+              city:
+              venue:
+              url:
+      preview:
+        text:
+          - key: city
+        subtext:
+          - key: venue
+
+  merch:
+    label: Merch
+    type: array
+    comment: Merch/product cards. Drag items to reorder.
+    options:
+      structures:
+        values:
+          - label: Merch Item
+            icon: shopping_bag
+            value:
+              name:
+              price:
+              image:
+              url:
+      preview:
+        text:
+          - key: name
+        subtext:
+          - key: price
+        image:
+          - key: image
 
   title:
     label: Title
@@ -77,16 +185,18 @@ _inputs:
   label:
     label: Label
     type: text
+    comment: Example: Video 001
   youtubeId:
     label: YouTube ID
     type: text
-    comment: Use only the ID, e.g. fPq_EjGA-R4
+    comment: Use only the ID, not the whole URL. Example: fPq_EjGA-R4
   url:
     label: URL
     type: url
   date:
     label: Date
     type: text
+    comment: Example: 24 MAY
   city:
     label: City
     type: text
@@ -99,14 +209,15 @@ _inputs:
   price:
     label: Price
     type: text
+    comment: Example: £35
   image:
     label: Image
     type: image
+    comment: Upload or select an image. Uploaded images go into assets/uploads.
     options:
       path: assets/uploads
       uploads_use_relative_path: true
+      empty_type: string
 
-collection_groups:
-  - heading: Edit Content
-    collections:
-      - site_data
+_snippets_imports:
+  cloudcannon: true
