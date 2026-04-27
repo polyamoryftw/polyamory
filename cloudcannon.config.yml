@@ -1,0 +1,112 @@
+# CloudCannon setup for the existing Polyamory static site.
+# Copy this file to the ROOT of your GitHub repo.
+# It does not change the website design or content.
+
+source: /
+base_url: https://polyamoryv1.netlify.app
+
+paths:
+  uploads: assets/uploads
+  static: /
+
+collections_config:
+  site_data:
+    name: Site Editor
+    singular_name: Site Content
+    path: data
+    glob:
+      - site.json
+    disable_url: true
+    icon: edit_note
+    _enabled_editors:
+      - data
+    preview:
+      text:
+        - key: siteTitle
+      subtext:
+        - key: tagline
+      icon: settings
+
+_inputs:
+  siteTitle:
+    label: Site Title
+    type: text
+  tagline:
+    label: Tagline
+    type: text
+  youtubeUrl:
+    label: Main YouTube URL
+    type: url
+
+  spotify:
+    label: Spotify URL
+    type: url
+  instagram:
+    label: Instagram URL
+    type: url
+  youtube:
+    label: YouTube URL
+    type: url
+  shopify:
+    label: Shopify URL
+    type: url
+
+  features:
+    label: Archive Cards
+    type: array
+    comment: Edit archive/feature cards. Drag to reorder.
+  shows:
+    label: Live Shows
+    type: array
+    comment: Edit live dates. Drag to reorder.
+  merch:
+    label: Merch
+    type: array
+    comment: Edit merch items. Drag to reorder.
+  videos:
+    label: Videos
+    type: array
+    comment: Edit videos shown in the side player. Drag to reorder.
+
+  title:
+    label: Title
+    type: text
+  subtitle:
+    label: Subtitle
+    type: text
+  label:
+    label: Label
+    type: text
+  youtubeId:
+    label: YouTube ID
+    type: text
+    comment: Use only the ID, e.g. fPq_EjGA-R4
+  url:
+    label: URL
+    type: url
+  date:
+    label: Date
+    type: text
+  city:
+    label: City
+    type: text
+  venue:
+    label: Venue
+    type: text
+  name:
+    label: Name
+    type: text
+  price:
+    label: Price
+    type: text
+  image:
+    label: Image
+    type: image
+    options:
+      path: assets/uploads
+      uploads_use_relative_path: true
+
+collection_groups:
+  - heading: Edit Content
+    collections:
+      - site_data
