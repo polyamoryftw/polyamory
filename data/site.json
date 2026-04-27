@@ -175,13 +175,6 @@
       "title": "Dates"
     },
     {
-      "id": "archive",
-      "visible": true,
-      "order": 2,
-      "eyebrow": "Archive",
-      "title": "Selected signal"
-    },
-    {
       "id": "store",
       "visible": true,
       "order": 5,
@@ -189,6 +182,13 @@
       "title": "Shop",
       "shopifyTitle": "Shopify-ready",
       "shopifyBody": "Replace product links with Shopify Buy Button, Hydrogen, or a full Shopify theme connection."
+    },
+    {
+      "id": "archive",
+      "visible": true,
+      "order": 2,
+      "eyebrow": "Archive",
+      "title": "Selected signal"
     }
   ],
   "footer": {
